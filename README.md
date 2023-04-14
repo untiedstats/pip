@@ -1,13 +1,5 @@
 # pip
 
-[Bootstrap](bootstrap.html)
+[get report by report number](2.html)
 
-[1](1.html)
-
-[2](2.html)
-
-[3](3.html)
-
-[4](4.html)
-
-[5](5.html)
+[get report by report number & prompt values](3.html)
