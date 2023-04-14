@@ -18,7 +18,13 @@
   
   <script>
     function makeURL(form) {
-      var url = "&Key=REPORT" + form.Key.value;
+      var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
+      var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
+      var PromptValues = "&PromptValues=";
+      var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
+      var Key = "&Key=REPORT" + form.Key.value;
+      var third = "&option=list";
+      var url = endpoint + first + PromptValues + second + Key + third
       document.getElementById("url").innerHTML = url;
     }
   </script>
