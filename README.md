@@ -1,4 +1,4 @@
-# pip
+# login to pip first (in this browser!)
 
 [get report by report number](2.html)
 
