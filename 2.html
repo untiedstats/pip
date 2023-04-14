@@ -12,7 +12,7 @@
     <form>
       <label for="Key">report number (e.g. 6702840):</label></br>
       <input type="text" id="Key" value=""></br>
-      <input type="button" value="Click" onClick="makeURL(this.form)">
+      <input type="button" value="you have to actually click, sorry" onClick="makeURL(this.form)">
     </form>
   
   <p id="url"></p>
@@ -26,7 +26,7 @@
       var Key = "&Key=REPORT" + form.Key.value;
       var third = "&option=list";
       var url = endpoint + first + PromptValues + second + Key + third;
-      var url = "<a href='" + url + "' target='new'>" + form.Key.value + "</a>";
+      var url = "<a href='" + url + "' target='new'>" + "bookmark this!" + "</a>";
       document.getElementById("url").innerHTML = url;
     }
   </script>
