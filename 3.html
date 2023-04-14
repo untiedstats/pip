@@ -31,13 +31,13 @@
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
 
-      var one = form.PromptValues.value.split(", ");
+      var one = form.PromptValues.value.split(", ").join("\n");
       document.getElementById("one").innerHTML = one;
       
-      var two = JSON.stringify(one);
+      var two = "skip";
       document.getElementById("two").innerHTML = two;
       
-      var three = encodeURIComponent(two);
+      var three = encodeURIComponent(one);
       document.getElementById("three").innerHTML = three;
       
       var PromptValues = "&PromptValues=" + encodeURIComponent(JSON.stringify(form.PromptValues.value.split(", ")));
