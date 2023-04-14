@@ -26,7 +26,7 @@
       var Key = "&Key=REPORT" + form.Key.value;
       var third = "&option=list";
       var url = endpoint + first + PromptValues + second + Key + third;
-      var url = "<a href='" + url + "' target='new'>" + Key + "</a>";
+      var url = "<a href='" + url + "' target='new'>" + form.Key.value + "</a>";
       document.getElementById("url").innerHTML = url;
     }
   </script>
