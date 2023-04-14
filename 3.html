@@ -17,8 +17,8 @@
       <label for="PromptValues">prompt values (e.g. 10007, 10008, 10068):</label></br>
       <input type="text" id="PromptValues" value=""></br>
 
-      <label for="wildcards">wildcards (e.g. %21/22%):</label></br>
-      <input type="text" id="wildcards" value=""></br>
+      <label for="WildCards">wildcards (e.g. %21/22%):</label></br>
+      <input type="text" id="WildCards" value=""></br>
 
       <input type="button" value="Click" onClick="makeURL(this.form)">
     </form>
@@ -35,7 +35,7 @@
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.split(", ").join("\n"));
       
-      var wildcards = "+" + encodeURIComponent(" " + form.PromptValues.value.split(", ").join("\n"));
+      var wildcards = "+" + encodeURIComponent(" " + form.WildCards.value.split(", ").join("\n"));
       var PromptValues = PromptValues + wildcards;
       
       var one = form.PromptValues.value.split(", ").join("\n");
