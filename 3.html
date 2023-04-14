@@ -35,7 +35,7 @@
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.split(", ").join("\n"));
       
-      var wildcards = "+" encodeURIComponent(" " + form.PromptValues.value.split(", ").join("\n"));
+      var wildcards = "+" + encodeURIComponent(" " + form.PromptValues.value.split(", ").join("\n"));
       var PromptValues = PromptValues + wildcards;
       
       var one = form.PromptValues.value.split(", ").join("\n");
