@@ -28,9 +28,9 @@
 <br><p id="one"></p>
 <br><p id="two"></p>
 <br><p id="three"></p>
-<br><p id="PromptValues">PromptValues = </p>
 
-<br><p id="url"></p>
+<br>PromptValues = <p id="PromptValues"></p>
+<br>URL = <p id="url"></p>
 
   <script>
     function makeURL(form) {
@@ -55,7 +55,7 @@
       var third = "&option=list";
       
       var url = endpoint + first + PromptValues + second + Key + third;
-      var url = "<a href='" + url + "' target='new'>" + "bookmark this!" + "</a>";
+      var url = "<a href='" + url + "' target='new'>" + url + "</a>";
       document.getElementById("url").innerHTML = url;
     }
   </script>
