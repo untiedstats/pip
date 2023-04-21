@@ -27,6 +27,7 @@
 <br><p id="one"></p>
 <br><p id="two"></p>
 <br><p id="three"></p>
+<br><p id="PromptValues"></p>
 
 <br><p id="url"></p>
 
@@ -35,12 +36,18 @@
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       
+      one = form.PromptValues.value.replaceAll(", ,", ",+,");
+      document.getElementById("one").innerHTML = one;
       
-      document.getElementById("one").innerHTML = form.PromptValues.value.replaceAll(", ,", ",+,");
-      document.getElementById("two").innerHTML = form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "");
-      document.getElementById("three").innerHTML = form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "%0A");   
+      two = one.replaceAll(" ", "");
+      document.getElementById("two").innerHTML = two;
       
-      var PromptValues = "&PromptValues=" + form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "%0A");
+      three = two.replaceAll(",", "/n"); 
+      document.getElementById("three").innerHTML = three;  
+      
+      var PromptValues = "&PromptValues=" + encodeURI(three); 
+      document.getElementById("PromptValues").innerHTML = PromptValues;
+      
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       
       var Key = "&Key=REPORT" + form.Key.value;
