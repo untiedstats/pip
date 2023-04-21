@@ -45,7 +45,7 @@
       three = two.replaceAll(",", "/n"); 
       document.getElementById("three").innerHTML = three;  
       
-      var PromptValues = "&PromptValues=" + encodeURI(three); 
+      var PromptValues = "&PromptValues=" + encodeURIComponent(three); 
       document.getElementById("PromptValues").innerHTML = PromptValues;
       
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
