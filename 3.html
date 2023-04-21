@@ -37,10 +37,10 @@
       
       
       document.getElementById("one").innerHTML = form.PromptValues.value.replace(", ,", ",+,");
-      document.getElementById("two").innerHTML = form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A");
-      document.getElementById("three").innerHTML = "&PromptValues=" + form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A");   
+      document.getElementById("two").innerHTML = form.PromptValues.value.replace(", ,", ",+,").replace(" ", "");
+      document.getElementById("three").innerHTML = form.PromptValues.value.replace(", ,", ",+,").replace(" ", "").replace(",", "%0A");   
       
-      var PromptValues = "&PromptValues=" + form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A");   
+      var PromptValues = "&PromptValues=" + form.PromptValues.value.replace(", ,", ",+,").replace(" ", "").replace(",", "%0A");
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       
       var Key = "&Key=REPORT" + form.Key.value;
