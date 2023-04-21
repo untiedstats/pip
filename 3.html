@@ -40,13 +40,13 @@
       one = form.PromptValues.value.replaceAll(", ,", ",+,");
       document.getElementById("one").innerHTML = one;
       
-      two = one.replaceAll(" ", "");
+      two = one.replaceAll(" ", "").replaceAll(",", "\n");
       document.getElementById("two").innerHTML = two;
       
-      three = two.replaceAll(",", "\n"); 
+      three = encodeURIComponent(two).replaceAll("%2B", "+");
       document.getElementById("three").innerHTML = three;  
       
-      var PromptValues = "&PromptValues=" + encodeURIComponent(three); 
+      var PromptValues = "&PromptValues=" + three; 
       document.getElementById("PromptValues").innerHTML = PromptValues;
       
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
