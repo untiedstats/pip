@@ -22,14 +22,22 @@
       <input type="button" value="you have to actually click this, sorry" onClick="makeURL(this.form)">
     </form>
   
-  <br><p id="url"></p>
+<br><p id="one"></p>
+<br><p id="two"></p>
+<br><p id="three"></p>
+
+<br><p id="url"></p>
 
   <script>
     function makeURL(form) {
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       
-      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A"));   
+      var one = form.PromptValues.value.replace(", ,", ",+,");
+      var two = form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A")
+      var three = "&PromptValues=" + form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A");   
+      
+      var PromptValues = "&PromptValues=" + form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A");   
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       
       var Key = "&Key=REPORT" + form.Key.value;
