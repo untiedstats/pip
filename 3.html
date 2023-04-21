@@ -12,13 +12,12 @@
     
     <form>
       <label for="Key">report number (e.g. 5378558):</label></br>
-      <input type="text" id="Key" value=""></br>
+      <input type="text" id="Key" value="5378558"></br>
       
-      <label for="PromptValues">prompt values (e.g. 10007, 10008, 10068):</label></br>
-      <input type="text" id="PromptValues" value=""></br>
+      <label for="PromptValues">prompt values (e.g. 10007, 10008, 10068, , %22/23%):</label></br>
+      <input type="text" id="PromptValues" value="10007, 10008, 10068, , %22/23%"></br>
 
-      <label for="WildCards">wildcards (e.g. %21/22%):</label></br>
-      <input type="text" id="WildCards" value=""></br></br>
+<p>BIG OL' WARNING: Your list of prompt values must <u>exactly</u> match the order and amount of expected prompt values in PIP. If you are leaving a field blank, just leave a space between commas as in the example above.</p>
 
       <input type="button" value="you have to actually click this, sorry" onClick="makeURL(this.form)">
     </form>
@@ -30,13 +29,12 @@
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       
-      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.split(", ").join("\n"));     
-      var wildcards = "%0A%20%0A" + encodeURIComponent(form.WildCards.value.split(", ").join("\n"));
-      var PromptValues = PromptValues + wildcards;     
-      
+      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.split(", ").replace("", "+").join("%0A"));   
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
+      
       var Key = "&Key=REPORT" + form.Key.value;
       var third = "&option=list";
+      
       var url = endpoint + first + PromptValues + second + Key + third;
       var url = "<a href='" + url + "' target='new'>" + "bookmark this!" + "</a>";
       document.getElementById("url").innerHTML = url;
