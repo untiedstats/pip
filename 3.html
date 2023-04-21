@@ -34,7 +34,7 @@
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible&PromptValues=";
       
       var PromptValues = encodeURIComponent(form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "\n")).replaceAll("%2B", "+"); 
-      document.getElementById("PromptValues").innerHTML = PromptValues;
+      document.getElementById("PromptValues").innerHTML = "test";
       
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       var Key = "&Key=REPORT" + form.Key.value;
