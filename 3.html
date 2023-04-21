@@ -31,13 +31,12 @@
   <script>
     function makeURL(form) {
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
-      var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
+      var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible&PromptValues=";
       
-      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "\n")).replaceAll("%2B", "+"); 
+      var PromptValues = encodeURIComponent(form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "\n")).replaceAll("%2B", "+"); 
       document.getElementById("PromptValues").innerHTML = PromptValues;
       
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
-      
       var Key = "&Key=REPORT" + form.Key.value;
       var third = "&option=list";
       
