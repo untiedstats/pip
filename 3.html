@@ -29,7 +29,7 @@
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       
-      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.split(", ").replace("", "+").join("%0A"));   
+      var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.replace(", ,", ",+,").replace(",", "%0A"));   
       var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       
       var Key = "&Key=REPORT" + form.Key.value;
