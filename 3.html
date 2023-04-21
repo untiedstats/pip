@@ -33,15 +33,6 @@
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
       var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
       
-      one = "";
-      document.getElementById("one").innerHTML = one;
-      
-      two = "";
-      document.getElementById("two").innerHTML = two;
-      
-      three = "";
-      document.getElementById("three").innerHTML = three;  
-      
       var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "\n")).replaceAll("%2B", "+"); 
       document.getElementById("PromptValues").innerHTML = PromptValues;
       
