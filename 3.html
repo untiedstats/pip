@@ -12,10 +12,13 @@
     
     <form>
       <label for="Key">report number (e.g. 5378558):</label></br>
-      <input type="text" id="Key" value="5378558"></br>
+      <input type="text" id="Key" value=""></br>
+  </br>
+    <label for="SortField">sort field (e.g. display_no):</label></br>
+      <input type="text" id="SortField" value="display_no"></br>
   </br>
       <label for="PromptValues">prompt values (e.g. 10007, 10008, 10068, , %22/23%):</label></br>
-      <input type="text" id="PromptValues" value="10007, 10008, 10068, , %22/23%"></br>
+      <input type="text" id="PromptValues" value=""></br>
 
 <br>
 <p><b>BIG OL' WARNING</b><br>
@@ -26,21 +29,21 @@
     </form>
 
 <br>URL: <p id="url"></p>
-<br>PromptValues: <p id="PromptValues"></p>
 
   <script>
     function makeURL(form) {
       var endpoint = "https://cms.interiorhealth.ca/cms/Send?";
-      var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=&SortField=display_no&View=visible";
+      var first = "operation=Execute&type=Download&image=true&ListName=list-view&FiltersSearch=";
+      var SortField = "&SortField=" + form.SortField.value;
       
+      var second = "&View=visible";
       var PromptValues = "&PromptValues=" + encodeURIComponent(form.PromptValues.value.replaceAll(", ,", ",+,").replaceAll(" ", "").replaceAll(",", "\n")).replaceAll("%2B", "+"); 
-      document.getElementById("PromptValues").innerHTML = "test";
       
-      var second = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
+      var third = "&SortDirection=descending&sendButtons=true&ClassName=ReportPreview&RequestDSNAndMDN=false&ArrayFieldsRendering=expanded";
       var Key = "&Key=REPORT" + form.Key.value;
-      var third = "&option=list";
+      var fourth = "&option=list";
       
-      var url = endpoint + first + PromptValues + second + Key + third;
+      var url = endpoint + first + SortField + second + PromptValues + third + Key + fourth;
       var url = "<a href='" + url + "' target='new'>" + url + "</a>";
       document.getElementById("url").innerHTML = url;
     }
